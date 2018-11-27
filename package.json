@@ -3,7 +3,9 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "chokidar": "^2.0.4",
     "electron": "^3.0.10",
+    "node-fetch": "^2.3.0",
     "react": "^16.6.3",
     "react-dom": "^16.6.3",
     "react-dropzone": "^7.0.1",

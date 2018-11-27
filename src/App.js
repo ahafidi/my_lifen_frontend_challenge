@@ -1,7 +1,9 @@
-import React, { Component } from 'react'
+import React, { Component, Fragment } from 'react'
 import ReactDropzone from 'react-dropzone'
 
 import { api } from './constants'
+
+// const { ipcRenderer } = window.require('electron')
 
 class App extends Component {
   state = {
@@ -30,7 +32,7 @@ class App extends Component {
         remoteFile: `― ${response.headers.get('Location')}`,
       })
     }
-    
+
     this.findTotal()
   }
 
@@ -51,7 +53,7 @@ class App extends Component {
     } = this.state
 
     return (
-      <div>
+      <Fragment>
         <ReactDropzone
           multiple={false}
           onDrop={this.onDrop}
@@ -59,12 +61,14 @@ class App extends Component {
           Drop your document here.
         </ReactDropzone>
 
-        { filename } { remoteFile }
-        <br />
-        {
-          (total !== 0) && (`${total} files uploaded so far.`)
-        }
-      </div>
+        <div id="foo">
+          { filename } { remoteFile }
+          <br />
+          {
+            (total !== 0) && (`${total} files uploaded so far.`)
+          }
+        </div>
+      </Fragment>
     )
   }
 }
